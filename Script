@@ -43,11 +43,6 @@ def AskToJoin():
 		'div.uArJ5e.UQuaGc.Y5sE8d.uyXBBb.xKiqt').click()
 	# Ask to join and join now buttons have same xpaths
 
-
-# assign email id and password
-mail_address = 'add_your_email_id_here'
-password = 'add_your_password_here'
-
 # create chrome instance
 opt = Options()
 opt.add_argument('--disable-blink-features=AutomationControlled')
