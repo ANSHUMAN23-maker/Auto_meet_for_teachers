@@ -60,7 +60,7 @@ opt.add_experimental_option("prefs", {
 driver = webdriver.Chrome(options=opt)
 
 # go to google meet
-driver.get('https://meet.google.com/ivz-yuei-nns')
+driver.get('add_your_meeting_link_here')
 turnOffMicCam()
 # AskToJoin()
 joinNow()
