@@ -10,7 +10,27 @@ def admit():
             driver.find_element_by_xpath('//*[@id="yDmH0d"]/div[3]/div/div[2]/div[3]/div[3]').click()
         except:
             pass
-
+def Glogin(mail_address, password):
+    # Login Page
+    driver.get(
+        'https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/&ec=GAZAAQ')
+ 
+    # input Gmail
+    driver.find_element_by_id("identifierId").send_keys(mail_address)
+    driver.find_element_by_id("identifierNext").click()
+    driver.implicitly_wait(10)
+ 
+    # input Password
+    driver.find_element_by_xpath(
+        '//*[@id="password"]/div[1]/div/div[1]/input').send_keys(password)
+    driver.implicitly_wait(10)
+    driver.find_element_by_id("passwordNext").click()
+    driver.implicitly_wait(10)
+ 
+    # go to google home page
+    driver.get('https://google.com/')
+    driver.implicitly_wait(100)
+    
 def turnOffMicCam():
 	# turn off Microphone
 	time.sleep(2)
@@ -42,6 +62,10 @@ def AskToJoin():
 	driver.find_element_by_css_selector(
 		'div.uArJ5e.UQuaGc.Y5sE8d.uyXBBb.xKiqt').click()
 	# Ask to join and join now buttons have same xpaths
+	
+# assign email id and password
+mail_address = 'emaild@gmail.com'
+password = 'add_email_address_here'
 
 # create chrome instance
 opt = Options()
@@ -55,10 +79,12 @@ opt.add_experimental_option("prefs", {
 })
 driver = webdriver.Chrome(options=opt)
 
+# login to Google account
+Glogin(mail_address, password)
 # go to google meet
 driver.get('add_your_meeting_link_here')
 turnOffMicCam()
-# AskToJoin()
+AskToJoin()
 joinNow()
 
 #Admit automatically
