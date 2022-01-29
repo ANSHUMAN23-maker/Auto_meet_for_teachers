@@ -91,4 +91,4 @@ turnOffMicCam()
 joinNow()
 
 #Admit automatically
-admit():
+admit()
